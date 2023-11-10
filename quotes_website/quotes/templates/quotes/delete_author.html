@@ -1,0 +1,25 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %} role="alert">
+        {{message}}
+      </div>    
+    {% endfor %}
+{% endif %}
+
+{% if form.errors %}
+<div class="alert alert-danger" role="alert">
+    {{form.non_field_errors}}
+{% endif %}
+<h1>Delete Author</h1>
+<form action="{% url 'quotes:delete_author' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-control">Fullname</label>
+        {{del_author_form.fullname}}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
