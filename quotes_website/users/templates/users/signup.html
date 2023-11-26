@@ -11,6 +11,12 @@
         </div>
         <span>{{form.errors.username}}</span>
     </div>
+    <div>
+        <label> Email:
+            {{ form.email }}
+        </label>
+        <span>{{ form.errors.email }}</span>
+    </div>
     <div class="form-row">
         <div class="mb-3">
             <label class="form-label">Password</label>
@@ -25,7 +31,10 @@
         </div>
         <span>{{form.errors.password2}}</span>
     </div>
-    <button type="submit" class="btn btn-primary">Sign Up</button>
+    <div class="grid">
+        <button type="submit">Submit</button>
+        <button type="reset" class="secondary">Reset</button>
+    </div>
 </form>
 
 {% endblock %}
